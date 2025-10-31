@@ -1,5 +1,6 @@
 from elasticsearch import Elasticsearch, helpers
 import pathlib
+import time
 
 ES_URL = "http://localhost:9200"
 INDEX  = "files"
