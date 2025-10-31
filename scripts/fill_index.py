@@ -26,8 +26,8 @@ def gen_docs():
                 "path": str(path.resolve())
             }
         }
-
+start = time.time()
 helpers.bulk(es, gen_docs())
-print("Indicizzazione completata!")
+print(f"Indicizzazione completata! Tempo impiegato: {time.time() - start:.2f} secondi")
 # Vedere i documenti indicizzati nell'indice:
 # curl -X GET "localhost:9200/files/_search?pretty"
