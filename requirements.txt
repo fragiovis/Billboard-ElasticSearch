@@ -1,0 +1,4 @@
+elasticsearch==8.14.*
+
+streamlit>=1.32,<2
+pathlib>=1.0,<2

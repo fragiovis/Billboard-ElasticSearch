@@ -1,0 +1,39 @@
+{
+  "settings": {
+    "analysis": {
+      "tokenizer": {
+        "newline_tokenizer": {
+          "type": "pattern",
+          "pattern": "\\n"
+        }
+      },
+      "analyzer": {
+        "content_standard": {
+          "type": "custom",
+          "tokenizer": "standard",
+          "filter": ["lowercase", "stop"]
+        },
+        "content_by_line": {
+          "type": "custom",
+          "tokenizer": "newline_tokenizer",
+          "filter": ["lowercase"]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "name":    { "type": "text", "analyzer": "standard" },
+      "content": {
+        "type": "text",
+        "analyzer": "content_standard",
+        "fields": {
+          "by_line": {
+            "type": "text",
+            "analyzer": "content_by_line"
+          }
+        }
+      }
+    }
+  }
+}
